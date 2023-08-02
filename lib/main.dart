@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/adress_class.dart';
 
 //Exercie 1
 
@@ -15,16 +16,16 @@ import 'package:flutter/material.dart';
 // }
 
 //Exercice 2
-void main() {
+/*void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
-          title: Text("I AM RICH", style: TextStyle(color: Colors.white)),
+          title: Center(
+              child: Text("I AM RICH", style: TextStyle(color: Colors.white))),
           backgroundColor: Colors.black,
-          centerTitle: true,
         ),
         body: Center(
           child: Image(
@@ -36,4 +37,15 @@ void main() {
       ),
     ),
   );
+}
+*/
+import 'Perosn.dart';
+
+void main() {
+  Address adresse = Address(1, "45", "dsd", "15");
+  Person father = Person("talel", "290333", adresse);
+  print(father.name);
+
+  Person son = Person.Kid("Hama");
+  print(son.name);
 }
