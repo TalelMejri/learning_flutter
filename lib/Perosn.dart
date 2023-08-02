@@ -21,4 +21,6 @@ class Person {
   set phone(String val) {
     _phone = val;
   }
+
+  String speak(String nom) => "hello ${nom}";
 }
