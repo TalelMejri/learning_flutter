@@ -52,7 +52,7 @@ class _MyHomePage extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.indigoAccent,
         title: Text(
           "Hello",
           style: TextStyle(color: Colors.white),
@@ -65,6 +65,32 @@ class _MyHomePage extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation
           .centerDocked, //Location for floatingActionButton
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(), //make bottomAppBar shape
+        color: Colors.indigoAccent,
+        child: Container(
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
