@@ -63,6 +63,8 @@ class _MyHomePage extends State<MyHomePage> {
         onPressed: Dothis,
         child: heard,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation
+          .centerDocked, //Location for floatingActionButton
     );
   }
 }
