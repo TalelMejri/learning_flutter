@@ -1,61 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/Employee.dart';
-import 'package:learning_flutter/adress_class.dart';
-
-//Exercie 1
-
-// void main() {
-//   runApp(MaterialApp(
-//     home: Center(
-//       child: Text(
-//         "Talel Mejri",
-//         style: TextStyle(color: Colors.blue, decoration: TextDecoration.none),
-//       ),
-//     ),
-//     debugShowCheckedModeBanner: false,
-//   ));
-// }
-
-//Exercice 2
-/*void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          title: Center(
-              child: Text("I AM RICH", style: TextStyle(color: Colors.white))),
-          backgroundColor: Colors.black,
-        ),
-        body: Center(
-          child: Image(
-            image: AssetImage('images/profile.png'),
-            width: 600,
-            height: 400,
-          ),
-        ),
-      ),
-    ),
-  );
-}
-*/
-import 'Perosn.dart';
 
 void main() {
-  Address adresse = Address(1, "45", "dsd", "15");
-  Person father = Person("talel", "290333", adresse);
-  print(father.name);
-  father.name = "dsd";
-  Person son = Person.Kid("Hama");
+  runApp(const MyApp());
+}
 
-  print(son.name);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Flutter Demo",
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
+      home: const MyHomePage(title: "online shopping"),
+    );
+  }
+}
 
-  Employee developer = Employee("talel", "222", adresse, 3000);
-  print(developer.adress?.houseNumber);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
+  @override
+  State<MyHomePage> createState() => _MyHomePage();
+}
 
-  print(
-      "Developer's name : ${developer.name.toString().toUpperCase()} and he's paied ${developer.salary}dt");
+class _MyHomePage extends State<MyHomePage> {
+  Icon heard = Icon(
+    Icons.favorite,
+    color: Colors.white,
+  );
+  bool cliqued = false;
+  void Dothis() {
+    setState(() {
+      if (cliqued == false) {
+        heard = Icon(
+          Icons.favorite,
+          color: Colors.white,
+        );
+        cliqued = true;
+      } else {
+        heard = Icon(
+          Icons.favorite_border,
+          color: Colors.white,
+        );
+        cliqued = false;
+      }
+    });
+  }
 
-  print(developer.speak("mejri"));
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          "Hello",
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: <Widget>[IconButton(onPressed: Dothis, icon: heard)],
+      ),
+    );
+  }
 }
