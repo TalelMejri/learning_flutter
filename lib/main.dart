@@ -59,6 +59,10 @@ class _MyHomePage extends State<MyHomePage> {
         ),
         actions: <Widget>[IconButton(onPressed: Dothis, icon: heard)],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: Dothis,
+        child: heard,
+      ),
     );
   }
 }
