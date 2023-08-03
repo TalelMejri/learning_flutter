@@ -47,6 +47,13 @@ class _MyHomePage extends State<MyHomePage> {
     });
   }
 
+  int counter = 0;
+  void increment() {
+    setState(() {
+      this.counter++;
+    });
+  }
+
   String display = "0:Home View";
   int selectIndex = 0;
 
@@ -91,6 +98,15 @@ class _MyHomePage extends State<MyHomePage> {
             Text(
               '${display}',
               style: TextStyle(color: Colors.indigoAccent, fontSize: 40),
+            ),
+            Text(
+              "This Counter ${counter} ",
+              style: TextStyle(color: Colors.red, fontSize: 25),
+            ),
+            IconButton(
+              onPressed: increment,
+              icon: Icon(Icons.plus_one),
+              color: Colors.black,
             )
           ],
         ),
