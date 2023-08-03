@@ -74,8 +74,8 @@ flutter:
   # example:
   fonts:
       - family: MaterialIcons
-        fonts:
-          - asset: fonts/MaterialIcons-Regular.otf
+        #fonts:
+          #- asset: fonts/MaterialIcons-Regular.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
