@@ -30,7 +30,6 @@ class _MyHomePage extends State<MyHomePage> {
   );
   bool cliqued = false;
   void Dothis() {
-    print("tetts");
     setState(() {
       if (cliqued == false) {
         heard = Icon(
@@ -48,6 +47,32 @@ class _MyHomePage extends State<MyHomePage> {
     });
   }
 
+  String display = "0:Home View";
+  int selectIndex = 0;
+
+  void cliquedItem(int index) {
+    setState(() {
+      selectIndex = index;
+      switch (index) {
+        case 0:
+          {
+            display = "${selectIndex} : Home View";
+          }
+          break;
+        case 1:
+          {
+            display = "${selectIndex} : Account View";
+          }
+          break;
+        case 2:
+          {
+            display = "${selectIndex} : Setting View";
+          }
+          break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,38 +84,73 @@ class _MyHomePage extends State<MyHomePage> {
         ),
         actions: <Widget>[IconButton(onPressed: Dothis, icon: heard)],
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              '${display}',
+              style: TextStyle(color: Colors.indigoAccent, fontSize: 40),
+            )
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: Dothis,
         child: heard,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation
-          .centerDocked, //Location for floatingActionButton
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(), //make bottomAppBar shape
-        color: Colors.indigoAccent,
-        child: Container(
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                onPressed: null,
+          .endFloat, //Location for floatingActionButton
+      // bottomNavigationBar: BottomAppBar(
+      //   shape: CircularNotchedRectangle(), //make bottomAppBar shape
+      //   color: Colors.indigoAccent,
+      //   child: Container(
+      //     height: 50,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       children: <Widget>[
+      //         IconButton(
+      //           onPressed: null,
+      //           icon: Icon(
+      //             Icons.home,
+      //             color: Colors.white,
+      //           ),
+      //         ),
+      //         IconButton(
+      //           onPressed: null,
+      //           icon: Icon(
+      //             Icons.arrow_back,
+      //             color: Colors.white,
+      //           ),
+      //         )
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.indigoAccent,
+          currentIndex: selectIndex,
+          onTap: cliquedItem,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
                   color: Colors.white,
                 ),
-              ),
-              IconButton(
-                onPressed: null,
+                label: "Home"),
+            BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.arrow_back,
+                  Icons.account_balance,
                   color: Colors.white,
                 ),
-              )
-            ],
-          ),
-        ),
-      ),
+                label: "Account"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
+                label: "Setting")
+          ]),
     );
   }
 }
