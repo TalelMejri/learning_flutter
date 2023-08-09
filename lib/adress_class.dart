@@ -26,4 +26,6 @@ class Address {
   set postalcode(String val) {
     this._postalcode = val;
   }
+
+  String afficher()=>"Hello ${this._houseNumber}";
 }
