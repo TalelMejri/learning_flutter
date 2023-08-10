@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _MySatetApp extends State<MYSatetApp>{
 
   SnackBar snack=SnackBar(
     content:Text("Content Snackbar"),
-    action: SnackBarAction(label: "close", onPressed: (){}),
+    action: SnackBarAction(label:"Close" , onPressed: (){}),
     duration: Duration(seconds: 2 ),
     backgroundColor: Colors.black
     );
@@ -93,12 +94,15 @@ class _MySatetApp extends State<MYSatetApp>{
                 height: 50,
                 color:widget.color,
                 child: Row(
-                    mainAxisAlignment:MainAxisAlignment.end,
+                    mainAxisAlignment:MainAxisAlignment.spaceAround,
                     children: <Widget>
                 [
                    IconButton(onPressed:(){
                         ScaffoldMessenger.of(context).showSnackBar(snack);
-                   }, icon: Icon(Icons.home)),
+                   }, icon: Icon(Icons.open_in_browser)),
+                      IconButton(onPressed:(){
+                        ScaffoldMessenger.of(context).showSnackBar(snack);
+                   }, icon: Icon(Icons.looks))
                 ],
               ),
             ),
