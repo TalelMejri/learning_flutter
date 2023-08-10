@@ -147,7 +147,7 @@ class _MyHomePage extends State<MyHomePage> {
           backgroundColor: Colors.indigoAccent,
           currentIndex: selectIndex,
           onTap: cliquedItem,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
@@ -166,7 +166,17 @@ class _MyHomePage extends State<MyHomePage> {
                   color: Colors.white,
                 ),
                 label: "Setting")
-          ]),
+          ],
+          ),
+          drawer: Drawer(
+            child: Column(children: const<Widget>[
+                DrawerHeader(child: Text("helo",style: TextStyle(fontSize: 40))),
+                Text("taldle"),
+                Text("talle"),
+                Text("talle"),
+            ],
+            ),
+          ),
     );
   }
 }
