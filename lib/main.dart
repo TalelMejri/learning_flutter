@@ -31,7 +31,12 @@ class MYSatetApp extends StatefulWidget{
 
 class _MySatetApp extends State<MYSatetApp>{
 
-
+  SnackBar snack=SnackBar(
+    content:Text("Content Snackbar"),
+    action: SnackBarAction(label: "close", onPressed: (){}),
+    duration: Duration(seconds: 2 ),
+    backgroundColor: Colors.black
+    );
   int _red=0;
   int _green=0;
   int _blue=0;
@@ -77,9 +82,26 @@ class _MySatetApp extends State<MYSatetApp>{
             ],
           ),
           ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
             backgroundColor: widget.color,
             onPressed: changeColor,child: Icon(Icons.palette,color: Colors.white),
+            ),
+            bottomNavigationBar: BottomAppBar(
+              shape: CircularNotchedRectangle(),
+              child: Container(
+                height: 50,
+                color:widget.color,
+                child: Row(
+                    mainAxisAlignment:MainAxisAlignment.end,
+                    children: <Widget>
+                [
+                   IconButton(onPressed:(){
+                        ScaffoldMessenger.of(context).showSnackBar(snack);
+                   }, icon: Icon(Icons.home)),
+                ],
+              ),
+            ),
             ),
     );
   }
