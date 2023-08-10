@@ -100,9 +100,22 @@ class _MySatetApp extends State<MYSatetApp>{
                    IconButton(onPressed:(){
                         ScaffoldMessenger.of(context).showSnackBar(snack);
                    }, icon: Icon(Icons.open_in_browser)),
-                      IconButton(onPressed:(){
-                        ScaffoldMessenger.of(context).showSnackBar(snack);
-                   }, icon: Icon(Icons.looks))
+                     IconButton(onPressed: (){
+                     showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (BuildContext context){
+                          return AlertDialog(
+                            title: Text("Important"),
+                            content: Text("Test Show Dialog"),
+                             actions: <Widget>[
+                              ElevatedButton(onPressed: (){
+                                   Navigator.of(context).pop();
+                                }, child: Icon(Icons.close))
+                             ],
+                          );
+                        });
+                     }, icon: Icon(Icons.show_chart))
                 ],
               ),
             ),
