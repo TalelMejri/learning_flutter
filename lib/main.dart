@@ -69,7 +69,17 @@ class _MyHomeApp extends State<MyHomeApp>{
                 ],
               ),
               ),
-              floatingActionButton: FloatingActionButton(onPressed: ChangerColor,child: Icon(Icons.change_circle_rounded),backgroundColor: widget.color),
+              floatingActionButton: FloatingActionButton(
+                onPressed: ChangerColor,
+                child: Icon(Icons.change_circle_rounded),backgroundColor: widget.color
+                ),
+              drawer: Drawer(backgroundColor: widget.color,child: Column(children:const <Widget>[
+                 DrawerHeader(
+                  child: Text("Header")),
+                 Text("item1"),
+                 Text("item1"),
+                 Text("item1"),
+              ]),),
     );
   }
 }
